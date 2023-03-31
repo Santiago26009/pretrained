@@ -17,21 +17,6 @@ def index(request):
     context = {
         'myapp': []
     }
-    """
-    polls = models.Poll.objects.all()
-    for poll in polls:
-        item = {
-            "title": poll.title,
-            "id": poll.pk,
-            "answers": [{
-                "value": answer.value,
-                "user_first_name": answer.user.first_name,
-                "user_last_name": answer.user.last_name,
-                "id": answer.pk,
-            } for answer in poll.answers.all()]
-        }
-        context['polls'].append(item)
-    """
     return render(request, 'myapp/index.html', context)
 
 @login_required
