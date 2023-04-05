@@ -12,7 +12,7 @@ fi
 
 "$ve_dir"/bin/pip install -r requirements.txt
 
-#ve/bin/python mysite/manage.py migrate
-#ve/bin/python mysite/manage.py flush
-#ve/bin/python mysite/manage.py loaddata mysite/fixtures/data.json
+ve/bin/python mysite/manage.py migrate
+ve/bin/python mysite/manage.py flush
+ve/bin/python mysite/manage.py loaddata mysite/fixtures/data.json
 
