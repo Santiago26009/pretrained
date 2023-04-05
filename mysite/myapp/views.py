@@ -1,4 +1,5 @@
 # imports
+import os
 import json
 from django import forms
 from django.shortcuts import render
@@ -9,8 +10,6 @@ import json
 import numpy as np
 import joblib
 
-# load pre-trained machine learning model
-#model = joblib.load('models/iris_model.pkl')
 
 # define API endpoint
 @login_required
@@ -18,33 +17,21 @@ def index(request):
     context = {
         'myapp': []
     }
-    """
-    polls = models.Poll.objects.all()
-    for poll in polls:
-        item = {
-            "title": poll.title,
-            "id": poll.pk,
-            "answers": [{
-                "value": answer.value,
-                "user_first_name": answer.user.first_name,
-                "user_last_name": answer.user.last_name,
-                "id": answer.pk,
-            } for answer in poll.answers.all()]
-        }
-        context['polls'].append(item)
-    """
     return render(request, 'myapp/index.html', context)
 
 @login_required
 @csrf_exempt
 def predict_species(request):
-    model = joblib.load('/home/luis_wazoku/Documents/wazoku_dev_tests/test_python/mysite/models/iris_model.pkl')
+    # Get the absolute path to the directory containing this file
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    
+    # Define the relative path to the model's file
+    model_file_path = os.path.join(BASE_DIR, '../models/iris_model.pkl')
+
+    # Load the model
+    model = joblib.load(model_file_path)
+
     # parse input data from request body
-    # input_data = json.loads(request.body)
-    # sepal_length = input_data['sepal_length']
-    # sepal_width = input_data['sepal_width']
-    # petal_length = input_data['petal_length']
-    # petal_width = input_data['petal_width']
     sepal_length = float(request.POST['sepal_length'])
     sepal_width = float(request.POST['sepal_width'])
     petal_length = float(request.POST['petal_length'])
@@ -69,6 +56,3 @@ def predict_species(request):
         }}
     }
     return render(request, 'myapp/response.html', context)
-    # return HttpResponse(predicted_species)
-    # return JsonResponse(response_data)
-

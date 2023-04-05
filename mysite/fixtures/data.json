@@ -1,0 +1,22 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "first_name": "John",
+      "last_name": "Lenon",
+      "username": "johnlenon",
+      "password": "pbkdf2_sha256$260000$A1e37fpR37RiC2ZbLM7NvV$/EziJrP+FUTSpBGvpoUgyn+QSRMEn8MpCWBzoHEg5lg="
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "first_name": "Martin",
+      "last_name": "Luther",
+      "username": "martinluther",
+      "password": "pbkdf2_sha256$260000$A1e37fpR37RiC2ZbLM7NvV$/EziJrP+FUTSpBGvpoUgyn+QSRMEn8MpCWBzoHEg5lg="
+    }
+  }
+]

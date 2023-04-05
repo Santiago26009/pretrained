@@ -27,4 +27,7 @@ Login credentials have been shared with you via email
 
 ## Models description
 
+The model used in the predict_species code is a simple scikit-learn classifier trained on the Iris dataset. The Iris dataset is a classic machine learning dataset that contains measurements of the sepal length, sepal width, petal length, and petal width for three species of iris flowers (setosa, versicolor, and virginica).
+
+The model is a decision tree classifier, which is a type of model that makes predictions by recursively partitioning the input space into regions based on the values of the input features. Each partition corresponds to a leaf node in the tree, and the predicted class for an input is the majority class of the training samples in the corresponding leaf node.
 
